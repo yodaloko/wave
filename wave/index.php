@@ -67,7 +67,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <!-- Conteúdo do formulário de criar conta -->
-            <form action="cadastro.class.php" method="post">
+            <form action="../wave-main/controller/usuario.controller.php" method="post">
                 <div class="form-group">
                     <label for="email">Email:</label>
                     <input type="email" class="form-control" id="email" name="email" required>

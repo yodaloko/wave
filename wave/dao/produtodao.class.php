@@ -46,7 +46,7 @@ class ProdutoDAO { //DAO acesso a dados do objeto
         //Try catch para tratar os erros vindo do banco
         try{
             //Variavel stat para acessar o banco, utilizamos sempre QUERY para SELECT
-            $stat = $this->conexao->query("SELECT * FROM produto");
+            $stat = $this->conexao->query("SELECT * FROM produtos");
             //Criamos uma variavel para receber toda a lista (fatchALL)
             $array = $stat->fetchAll(PDO::FETCH_CLASS, 'produto');
             //Finalizar a conexão

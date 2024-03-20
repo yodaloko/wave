@@ -1,6 +1,6 @@
 <?php
 
-include '../wave/persistence/conexao.class.php';
+include 'conexao.php';
 // Verifica se o formulário de login foi submetido
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Verifica se os campos de email e senha foram preenchidos
@@ -15,7 +15,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         // Prepara a consulta SQL para selecionar o usuário com base no nome de usuário e senha
         $sql = "SELECT id FROM usuario WHERE email = ? AND password = ?";
-        $stmt = $conexao->prepare($sql);
+        $stmt = $conn->prepare($sql);
         $stmt->bind_param("ss", $email, $password);
         $stmt->execute();
         $stmt->store_result();

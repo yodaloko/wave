@@ -28,7 +28,8 @@
 
       <nav class="navbar navbar-inverse" style="margin-bottom: 0; border-radius: 0;">
         <ul class="nav navbar-nav">
-          <li><a href="../wave/index.php">Home</a></li>
+          <li><a href="../index.php">Home</a></li>
+          <li><a href="../view/buscarcontatos.php">Visualizar Produtos</a></li>
         </ul>
       </nav>
 
@@ -50,24 +51,24 @@
         <!-- Formulário de adição de produto -->
         <form action="controller/produto.controller.php?op=cadastrar" method="post" name="form01">
           <div class="form-group">
-            <label for="txtnome">Nome do Produto:</label>
-            <input type="text" class="form-control" id="txtnome" name="txtnome" required>
+            <label for="nome">Nome do Produto:</label>
+            <input type="text" class="form-control" id="nome" name="txtnome" required>
           </div>
           <div class="form-group">
-                    <label for="txtpreco">Preço:</label>
-                    <input type="number" class="form-control" id="txtpreco" name="txtpreco" step="0.01" required>
+                    <label for="preco">Preço:</label>
+                    <input type="number" class="form-control" id="preco" name="txtpreco" step="0.01" required>
                 </div>
                 <div class="form-group">
-                    <label for="txtestoque">Estoque:</label>
-                    <input type="number" class="form-control" id="txtestoque" name="txtestoque" required>
+                    <label for="estoque">Estoque:</label>
+                    <input type="number" class="form-control" id="estoque" name="txtestoque" required>
                 </div>
                 <div class="form-group">
-                    <label for="txtdescricao">Descrição:</label>
-                    <textarea class="form-control" id="txtdescricao" name="txtdescricao" rows="3" required></textarea>
+                    <label for="descricao">Descrição:</label>
+                    <textarea class="form-control" id="descricao" name="txtdescricao" rows="3" required></textarea>
                 </div>
                 <div class="form-group">
-                    <label for="fileimg">Imagem:</label>
-                    <input type="file" class="form-control-file" id="fileimg" name="fileimg" accept="image/*" required>
+                    <label for="img">Imagem:</label>
+                    <input type="file" class="form-control-file" id="img" name="fileimg" accept="image/*" required>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
@@ -86,9 +87,9 @@
 <!--AQUI FAREMOS A BUSCA ATRAVÈS DO BD--> 
 <?php
 //incluir a classe produto
-include '../wave/model/produto.class.php';
+include '../model/produto.class.php';
 //incluir a classe produtoDAO
-include '../wave/dao/produtodao.class.php';
+include '../dao/produtodao.class.php';
 //Intanciar a classe DAO:
 $produtoDAO = new ProdutoDAO();
 //Criamos um objero para pegar o resultado da busca:
@@ -104,7 +105,6 @@ $produtos = $produtoDAO->buscarProdutos();
       <th>Estoque</th>
       <th>Descrição</th>
       <th>Imagem</th>
-      <th>Editar/Excluir</th>
     </tr>
   </thead>
   <tbody>
@@ -120,11 +120,11 @@ foreach ($produtos as $c){
   echo "<td>".$c->descricao."</td>";
   echo "<td>".$c->img."</td>";
   echo "<td>
-  <a href='../wave/controller/produto.controller.php?op=alterar&idproduto=$c->idproduto'>
-  <img src='../wave/img/edita.png' alt='Icone Editar'>
+  <a href='../controller/contato.controller.php?op=alterar&idcontato=$c->idcontato'>
+  <img src='../img/edita.png' alt='Icone Editar'>
   </a>
-  <a href='../wave/controller/produto.controller.php?op=deletar&idproduto=$c->idproduto'>
-  <img src='../wave/img/exclui.png' alt='Icone Excluir'>
+  <a href='../controller/contato.controller.php?op=deletar&idcontato=$c->idcontato'>
+  <img src='../img/exclui.png' alt='Icone Excluir'>
   </a>
   </td>";
   echo "</tr>";
